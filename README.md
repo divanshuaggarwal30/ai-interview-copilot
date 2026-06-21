@@ -1,6 +1,6 @@
 # AI Interview Copilot
 
-AI Interview Copilot is an AI-powered platform designed to help candidates evaluate their readiness for specific job roles by analyzing resumes, comparing them against job descriptions, identifying skill gaps, and generating personalized interview preparation content.
+AI Interview Copilot is an AI-powered platform designed to help candidates evaluate their readiness for specific job roles by analyzing resumes, comparing them against job descriptions, identifying skill gaps and generating personalized interview preparation content.
 
 The platform provides actionable insights that help users improve their profiles and prepare more effectively for technical interviews.
 
@@ -8,9 +8,9 @@ The platform provides actionable insights that help users improve their profiles
 
 ## Problem Statement
 
-Candidates often struggle to understand how well their resumes align with job requirements. Resume reviews, skill gap analysis, and interview preparation are typically manual, fragmented, and time-consuming.
+Candidates often struggle to understand how well their resumes align with job requirements. Resume reviews, skill gap analysis and interview preparation are typically manual, fragmented and time-consuming.
 
-AI Interview Copilot addresses this problem by providing a centralized platform that automates resume analysis, evaluates job fit, highlights missing skills, and generates personalized interview preparation resources.
+AI Interview Copilot addresses this problem by providing a centralized platform that automates resume analysis, evaluates job fit, highlights missing skills and generates personalized interview preparation resources.
 
 ---
 
