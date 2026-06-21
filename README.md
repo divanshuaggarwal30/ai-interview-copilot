@@ -111,5 +111,3 @@ ai-interview-copilot/
 * Voice-based interview practice
 * Real-time interview feedback
 * Personalized learning recommendations
-
----
