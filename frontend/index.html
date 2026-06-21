@@ -1,70 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Interview Copilot</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="AI-powered resume analysis, job description matching, skill gap detection, and interview preparation.">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">AI Interview Copilot</div>
-        <a href="#cta" class="nav-btn">Get Started</a>
+
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#analyze">Analyze</a></li>
+            <li><a href="#how">How It Works</a></li>
+        </ul>
     </nav>
 
+    <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <h1>Prepare Smarter. Interview Better.</h1>
+
+            <span class="badge">
+                AI-Powered Career Intelligence Platform
+            </span>
+
+            <h1>
+                Turn Your Resume Into Interview Opportunities
+            </h1>
+
             <p>
-                Analyze your resume, match job descriptions, identify skill gaps,
-                and generate personalized interview questions using AI.
+                Analyze your resume against job descriptions,
+                identify missing skills, and prepare smarter
+                with AI-powered interview guidance.
             </p>
-            <button>Get Started</button>
+
+            <div class="hero-buttons">
+                <a href="#analyze">
+                    <button class="primary-btn">
+                        Analyze Resume
+                    </button>
+                </a>
+            </div>
+
         </div>
     </section>
 
-    <section class="features">
+    <!-- ANALYZE SECTION -->
+    <section id="analyze" class="analyze-section">
+
         <div class="container">
-            <h2>Features</h2>
+
+            <div class="section-header">
+                <h2>Resume Match Analysis</h2>
+                <p>
+                    Paste your resume and job description below
+                    to evaluate your compatibility score.
+                </p>
+            </div>
+
+            <textarea
+                id="resume"
+                placeholder="Paste your resume content here...">
+            </textarea>
+
+            <textarea
+                id="jd"
+                placeholder="Paste job description here...">
+            </textarea>
+
+            <button
+                id="analyzeBtn"
+                class="primary-btn">
+                Analyze
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- RESULTS -->
+    <section class="results">
+
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Analysis Result</h2>
+            </div>
+
+            <div class="result-card">
+
+                <p id="score">
+                    Match Score: -
+                </p>
+
+                <h3>Missing Skills</h3>
+
+                <ul id="missingSkills">
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Key Features</h2>
+
+                <p>
+                    Everything needed to improve your profile
+                    and prepare for interviews.
+                </p>
+            </div>
 
             <div class="cards">
+
                 <div class="card">
-                    <h3>Resume Analysis</h3>
-                    <p>Extract skills, experience, and qualifications automatically.</p>
+                    <h3>Resume Intelligence</h3>
+
+                    <p>
+                        Extract skills, projects,
+                        experience, and qualifications.
+                    </p>
                 </div>
 
                 <div class="card">
-                    <h3>JD Matching</h3>
-                    <p>Compare resumes against job descriptions and calculate fit.</p>
+                    <h3>Job Match Analysis</h3>
+
+                    <p>
+                        Compare resumes against
+                        target job descriptions.
+                    </p>
                 </div>
 
                 <div class="card">
-                    <h3>Skill Gap Analysis</h3>
-                    <p>Identify missing skills required for your target role.</p>
+                    <h3>Skill Gap Detection</h3>
+
+                    <p>
+                        Discover technologies
+                        and competencies you are missing.
+                    </p>
                 </div>
 
                 <div class="card">
-                    <h3>Interview Questions</h3>
-                    <p>Generate personalized technical and behavioral questions.</p>
+                    <h3>Interview Preparation</h3>
+
+                    <p>
+                        Generate personalized
+                        interview questions.
+                    </p>
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
-    <section class="how-it-works">
+    <!-- HOW IT WORKS -->
+    <section id="how" class="how-it-works">
+
         <div class="container">
-            <h2>How It Works</h2>
+
+            <div class="section-header">
+                <h2>How It Works</h2>
+
+                <p>
+                    Four simple steps to improve
+                    your interview preparation.
+                </p>
+            </div>
 
             <div class="steps">
+
                 <div class="step">
                     <span>1</span>
-                    <h3>Upload Resume</h3>
+                    <h3>Paste Resume</h3>
                 </div>
 
                 <div class="step">
                     <span>2</span>
-                    <h3>Upload Job Description</h3>
+                    <h3>Add Job Description</h3>
                 </div>
 
                 <div class="step">
@@ -74,22 +200,60 @@
 
                 <div class="step">
                     <span>4</span>
-                    <h3>Practice Interviews</h3>
+                    <h3>Prepare Better</h3>
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
-    <section id="cta" class="cta">
+    <!-- CTA -->
+    <section class="cta">
+
         <div class="container">
-            <h2>Ready to Ace Your Next Interview?</h2>
+
+            <h2>
+                Start Preparing Like a Top Candidate
+            </h2>
+
             <p>
-                Start preparing with AI-powered insights and personalized guidance.
+                Discover skill gaps, improve job fit,
+                and prepare with confidence.
             </p>
-            <button>Launch Application</button>
+
+            <a href="#analyze">
+                <button class="primary-btn">
+                    Get Started
+                </button>
+            </a>
+
         </div>
+
     </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container">
+
+            <h3>AI Interview Copilot</h3>
+
+            <p>
+                Helping candidates prepare smarter through
+                AI-powered resume analysis and interview preparation.
+            </p>
+
+            <p class="copyright">
+                © 2026 AI Interview Copilot
+            </p>
+
+        </div>
+
+    </footer>
 
     <script src="app.js"></script>
+
 </body>
 </html>
