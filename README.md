@@ -1,56 +1,41 @@
 # AI Interview Copilot
 
-AI Interview Copilot is an AI-powered platform designed to help candidates evaluate their readiness for specific job roles by analyzing resumes, comparing them against job descriptions, identifying skill gaps and generating personalized interview preparation content.
+AI Interview Copilot is a full-stack web application designed to help candidates evaluate their readiness for specific job opportunities. The platform analyzes resumes against job descriptions, identifies missing skills, and provides actionable insights to improve interview preparation.
 
-The platform provides actionable insights that help users improve their profiles and prepare more effectively for technical interviews.
+The goal of the project is to simplify the job application process by helping users understand how well their profiles align with target roles and what areas need improvement.
 
 ---
 
 ## Problem Statement
 
-Candidates often struggle to understand how well their resumes align with job requirements. Resume reviews, skill gap analysis and interview preparation are typically manual, fragmented and time-consuming.
+Candidates often struggle to determine whether their resumes match the requirements of a job posting. Resume reviews, skill gap identification, and interview preparation are usually manual and time-consuming.
 
-AI Interview Copilot addresses this problem by providing a centralized platform that automates resume analysis, evaluates job fit, highlights missing skills and generates personalized interview preparation resources.
+AI Interview Copilot aims to streamline this process by providing resume analysis, job description matching, skill gap detection, and personalized interview preparation workflows in a single platform.
 
 ---
 
-## Features
+## Current Features
 
-### Resume Analysis
+### Frontend
 
-* Resume upload and parsing
-* Skill extraction and categorization
-* Experience and education analysis
+* Professional landing page
+* Resume upload interface
+* Job description upload interface
+* Responsive design for desktop and mobile devices
+* Dynamic results display
 
-### Job Description Matching
+### Backend
 
-* Job description upload
-* Resume-to-JD similarity scoring
-* Keyword and skill matching
+* Express.js REST API
+* Health monitoring endpoint
+* Feature discovery endpoint
+* Resume analysis endpoint (mock implementation)
 
-### Skill Gap Analysis
+### Analysis
 
-* Missing skill identification
-* Readiness assessment
-* Personalized improvement recommendations
-
-### AI-Powered Interview Preparation
-
-* Technical interview question generation
-* Behavioral interview question generation
-* Role-specific interview preparation
-
-### User Management
-
-* Secure authentication and authorization
-* User profiles
-* Session management
-
-### Progress Tracking
-
-* Interview preparation history
-* Performance insights
-* Learning progress monitoring
+* Match score calculation (temporary mock response)
+* Missing skills identification (temporary mock response)
+* Frontend-to-backend integration using Fetch API
 
 ---
 
@@ -58,35 +43,20 @@ AI Interview Copilot addresses this problem by providing a centralized platform 
 
 ### Frontend
 
-* React
-* React Router
-* Tailwind CSS
-* Axios
+* HTML
+* CSS
+* JavaScript
 
 ### Backend
 
 * Node.js
 * Express.js
+* CORS
 
-### Database
+### Development Tools
 
-* MongoDB
-* Mongoose
-
-### Authentication
-
-* JWT (JSON Web Tokens)
-* bcrypt
-
-### AI Integration
-
-* OpenAI API / Gemini API
-
-### Deployment
-
-* Vercel
-* Render
-* MongoDB Atlas
+* Git
+* GitHub
 
 ---
 
@@ -96,18 +66,31 @@ AI Interview Copilot addresses this problem by providing a centralized platform 
 ai-interview-copilot/
 │
 ├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
 │
 ├── backend/
+│   ├── server.js
+│   ├── routes/
+│   ├── package.json
+│   └── package-lock.json
 │
 └── README.md
 ```
 
 ---
 
-## Future Improvements
+## Planned Enhancements
 
-* ATS compatibility scoring
-* Mock interview simulator
-* Voice-based interview practice
-* Real-time interview feedback
-* Personalized learning recommendations
+* PDF and DOCX resume parsing
+* Real skill extraction engine
+* Resume-to-job matching algorithm
+* MongoDB integration
+* User authentication with JWT
+* AI-powered interview question generation
+* Progress tracking dashboard
+* Personalized interview preparation recommendations
+
+```
+```
