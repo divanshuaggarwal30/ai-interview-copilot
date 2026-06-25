@@ -4,10 +4,14 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family: Inter, Arial, sans-serif;
-    color:#111827;
     background:#ffffff;
+    color:#111827;
     line-height:1.6;
 }
 
@@ -17,7 +21,9 @@ body{
     margin:auto;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
     display:flex;
@@ -25,6 +31,10 @@ body{
     align-items:center;
     padding:24px 5%;
     border-bottom:1px solid #e5e7eb;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
@@ -41,9 +51,17 @@ body{
 .nav-links a{
     text-decoration:none;
     color:#374151;
+    font-weight:500;
+    transition:.3s;
 }
 
-/* HERO */
+.nav-links a:hover{
+    color:#111827;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     padding:120px 20px;
@@ -56,7 +74,7 @@ body{
     border-radius:999px;
     background:#eef2ff;
     color:#4338ca;
-    font-size:0.9rem;
+    font-size:.9rem;
     margin-bottom:25px;
 }
 
@@ -64,6 +82,9 @@ body{
     font-size:4rem;
     line-height:1.1;
     margin-bottom:25px;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .hero p{
@@ -80,14 +101,18 @@ body{
     gap:15px;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 
 .primary-btn,
 .secondary-btn{
-    padding:14px 26px;
+    padding:14px 28px;
     border-radius:10px;
     cursor:pointer;
     font-size:1rem;
+    font-weight:600;
+    transition:.3s;
 }
 
 .primary-btn{
@@ -96,39 +121,22 @@ body{
     border:none;
 }
 
+.primary-btn:hover{
+    background:#000;
+}
+
 .secondary-btn{
     background:white;
     border:1px solid #d1d5db;
 }
 
-/* STATS */
-
-.stats{
-    padding:60px 20px;
+.secondary-btn:hover{
+    background:#f3f4f6;
 }
 
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.stat-card{
-    text-align:center;
-    padding:25px;
-    border:1px solid #e5e7eb;
-    border-radius:14px;
-}
-
-.stat-card h2{
-    font-size:2rem;
-}
-
-/* FEATURES */
-
-.features{
-    padding:100px 20px;
-}
+/* =========================
+   SECTION HEADER
+========================= */
 
 .section-header{
     text-align:center;
@@ -137,11 +145,130 @@ body{
 
 .section-header h2{
     font-size:2.5rem;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .section-header p{
     color:#6b7280;
+    max-width:700px;
+    margin:auto;
+}
+
+/* =========================
+   ANALYZE SECTION
+========================= */
+
+.analyze-section{
+    padding:100px 20px;
+    background:#f9fafb;
+}
+
+.upload-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.upload-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:30px;
+}
+
+.upload-card h3{
+    margin-bottom:10px;
+}
+
+.upload-card p{
+    color:#6b7280;
+    margin-bottom:15px;
+}
+
+textarea{
+    width:100%;
+    min-height:220px;
+    padding:15px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    resize:vertical;
+    font-size:15px;
+    font-family:inherit;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#111827;
+}
+
+.analyze-btn-wrapper{
+    margin-top:35px;
+    text-align:center;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.results{
+    padding:80px 20px;
+}
+
+.result-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:40px;
+}
+
+.result-card h2{
+    text-align:center;
+}
+
+.score-box{
+    text-align:center;
+    margin:30px 0;
+}
+
+.score-box span{
+    font-size:4rem;
+    font-weight:700;
+}
+
+.score-box p{
+    color:#6b7280;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.skills-card{
+    background:#f9fafb;
+    padding:25px;
+    border-radius:14px;
+}
+
+.skills-card h3{
+    margin-bottom:15px;
+}
+
+.skills-card ul{
+    padding-left:20px;
+}
+
+.skills-card li{
+    margin-bottom:10px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    padding:100px 20px;
 }
 
 .cards{
@@ -154,18 +281,21 @@ body{
     padding:30px;
     border:1px solid #e5e7eb;
     border-radius:16px;
-    transition:0.3s;
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .card h3{
     margin-bottom:10px;
 }
 
-/* HOW IT WORKS */
+/* =========================
+   HOW IT WORKS
+========================= */
 
 .how-it-works{
     padding:100px 20px;
@@ -192,10 +322,20 @@ body{
     align-items:center;
     justify-content:center;
     margin:auto auto 15px;
-    font-weight:bold;
+    font-weight:700;
 }
 
-/* CTA */
+.step h3{
+    margin-bottom:10px;
+}
+
+.step p{
+    color:#6b7280;
+}
+
+/* =========================
+   CTA
+========================= */
 
 .cta{
     text-align:center;
@@ -212,20 +352,31 @@ body{
     margin-bottom:30px;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     border-top:1px solid #e5e7eb;
-    padding:40px 20px;
+    padding:50px 20px;
     text-align:center;
+}
+
+footer h3{
+    margin-bottom:10px;
 }
 
 footer p{
     color:#6b7280;
-    margin-top:10px;
 }
 
-/* MOBILE */
+.copyright{
+    margin-top:15px;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:768px){
 
@@ -247,9 +398,10 @@ footer p{
         flex-direction:column;
     }
 
-    .stats-grid,
+    .upload-grid,
     .cards,
-    .steps{
+    .steps,
+    .skills-grid{
         grid-template-columns:1fr;
     }
 
@@ -260,109 +412,8 @@ footer p{
     .cta h2{
         font-size:2rem;
     }
-}
 
-.analyze-section {
-    padding: 80px 20px;
-}
-
-.analyze-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-textarea {
-    width: 100%;
-    height: 150px;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    resize: vertical;
-    font-size: 16px;
-}
-
-.results {
-    padding: 60px 20px;
-    background: #f9fafb;
-}
-
-.results h2 {
-    margin-bottom: 20px;
-}
-
-#score {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-#missingSkills li {
-    margin-bottom: 10px;
-}
-
-.upload-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-    margin-top:40px;
-}
-
-.upload-card{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:30px;
-    text-align:center;
-}
-
-.upload-card h3{
-    margin-bottom:10px;
-}
-
-.upload-card p{
-    color:#6b7280;
-    margin-bottom:20px;
-}
-
-.upload-card input{
-    width:100%;
-}
-
-.analyze-btn-wrapper{
-    margin-top:30px;
-    text-align:center;
-}
-
-.result-card{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:20px;
-    padding:40px;
-    max-width:700px;
-    margin:auto;
-}
-
-.score-box{
-    text-align:center;
-    margin:30px 0;
-}
-
-.score-box span{
-    font-size:4rem;
-    font-weight:700;
-    color:#111827;
-}
-
-.score-box p{
-    color:#6b7280;
-}
-
-.missing-skills-section ul{
-    margin-top:15px;
-    padding-left:20px;
-}
-
-.missing-skills-section li{
-    margin-bottom:10px;
+    .score-box span{
+        font-size:3rem;
+    }
 }
