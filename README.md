@@ -1,41 +1,54 @@
 # AI Interview Copilot
 
-AI Interview Copilot is a full-stack web application designed to help candidates evaluate their readiness for specific job opportunities. The platform analyzes resumes against job descriptions, identifies missing skills, and provides actionable insights to improve interview preparation.
+AI Interview Copilot is a full-stack web application that helps candidates evaluate how well their skills and experience align with target job opportunities. The platform analyzes resumes against job descriptions, calculates a job-fit score, identifies skill gaps, and provides actionable insights to improve interview readiness.
 
-The goal of the project is to simplify the job application process by helping users understand how well their profiles align with target roles and what areas need improvement.
+The objective of the project is to simplify the job application process by helping users understand their strengths, identify missing skills, and prepare more effectively for technical and behavioral interviews.
 
 ---
 
 ## Problem Statement
 
-Candidates often struggle to determine whether their resumes match the requirements of a job posting. Resume reviews, skill gap identification, and interview preparation are usually manual and time-consuming.
+Job seekers often struggle to determine whether their resumes align with the requirements of a specific role. Resume reviews, skill-gap analysis, and interview preparation are typically fragmented across multiple tools and require significant manual effort.
 
-AI Interview Copilot aims to streamline this process by providing resume analysis, job description matching, skill gap detection, and personalized interview preparation workflows in a single platform.
+AI Interview Copilot addresses this challenge by providing a centralized platform that evaluates resume-to-job compatibility, highlights missing skills, and guides candidates toward better interview preparation.
 
 ---
 
 ## Current Features
 
+### Resume & Job Description Analysis
+
+* Resume text input
+* Job description text input
+* Keyword-based skill matching
+* Automatic match score calculation
+* Matched skills identification
+* Missing skills detection
+
 ### Frontend
 
-* Professional landing page
-* Resume upload interface
-* Job description upload interface
-* Responsive design for desktop and mobile devices
-* Dynamic results display
+* Professional responsive landing page
+* Resume analysis workflow
+* Dynamic result rendering
+* Mobile-friendly design
+* Real-time API integration using Fetch
 
 ### Backend
 
 * Express.js REST API
+* Modular route architecture
 * Health monitoring endpoint
-* Feature discovery endpoint
-* Resume analysis endpoint (mock implementation)
+* Features endpoint
+* Resume analysis endpoint
+* JSON-based request and response handling
 
-### Analysis
+### End-to-End Workflow
 
-* Match score calculation (temporary mock response)
-* Missing skills identification (temporary mock response)
-* Frontend-to-backend integration using Fetch API
+* User submits resume and job description
+* Frontend sends data to backend API
+* Backend performs keyword matching analysis
+* Match score is calculated dynamically
+* Results are returned and rendered in the UI
 
 ---
 
@@ -43,9 +56,9 @@ AI Interview Copilot aims to streamline this process by providing resume analysi
 
 ### Frontend
 
-* HTML
-* CSS
-* JavaScript
+* HTML5
+* CSS3
+* JavaScript (ES6)
 
 ### Backend
 
@@ -72,9 +85,12 @@ ai-interview-copilot/
 │
 ├── backend/
 │   ├── server.js
-│   ├── routes/
 │   ├── package.json
-│   └── package-lock.json
+│   ├── package-lock.json
+│   └── routes/
+│       ├── health.js
+│       ├── features.js
+│       └── analyze.js
 │
 └── README.md
 ```
@@ -83,14 +99,13 @@ ai-interview-copilot/
 
 ## Planned Enhancements
 
-* PDF and DOCX resume parsing
-* Real skill extraction engine
-* Resume-to-job matching algorithm
+* Resume parsing for PDF and DOCX files
+* Advanced skill extraction engine
+* Semantic resume-to-job matching
 * MongoDB integration
 * User authentication with JWT
-* AI-powered interview question generation
+* Personalized interview question generation
+* AI-powered interview preparation
 * Progress tracking dashboard
-* Personalized interview preparation recommendations
-
-```
-```
+* User profiles and analytics
+* Deployment with cloud infrastructure
