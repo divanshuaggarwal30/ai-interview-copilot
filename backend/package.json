@@ -1,15 +1,22 @@
 {
   "name": "ai-interview-copilot-backend",
   "version": "1.0.0",
+  "description": "Backend API for AI Interview Copilot. Provides resume analysis, job description matching, and skill gap detection services.",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "resume-analysis",
+    "job-matching",
+    "interview-preparation"
+  ],
+  "author": "Divanshu Aggarwal",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1"
