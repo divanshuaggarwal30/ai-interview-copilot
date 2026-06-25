@@ -44,9 +44,9 @@
             </h1>
 
             <p>
-                Upload your resume and target role to receive
-                match analysis, skill gap insights, and
-                personalized interview preparation powered by AI.
+                Paste your resume and target job description to receive 
+                instant job-fit analysis, skill gap insights, and interview
+                preparation guidance.
             </p>
 
             <div class="hero-buttons">
@@ -79,8 +79,9 @@
                 <h2>Analyze Your Profile</h2>
 
                 <p>
-                    Upload your resume and target job description
-                    to receive personalized insights and interview guidance.
+                    Paste your resume and target job description
+                    to receive a match score, skill analysis,
+                    and interview preparation insights.
                 </p>
 
             </div>
@@ -92,14 +93,14 @@
                     <h3>📄 Resume</h3>
 
                     <p>
-                        Upload your latest resume
+                        Paste your resume content below
                     </p>
 
-                    <input
-                        type="file"
-                        id="resumeFile"
-                        accept=".pdf,.doc,.docx"
-                    >
+                    <textarea
+                        id="resume"
+                        placeholder="Example: Java Spring Boot React MySQL Git AWS..."
+                        rows="10"
+                    ></textarea>
 
                 </div>
 
@@ -108,14 +109,14 @@
                     <h3>🎯 Job Description</h3>
 
                     <p>
-                        Upload target job description
+                        Paste the target job description below
                     </p>
 
-                    <input
-                        type="file"
-                        id="jdFile"
-                        accept=".pdf,.doc,.docx,.txt"
-                    >
+                    <textarea
+                        id="jd"
+                        placeholder="Example: React Node MongoDB AWS Git..."
+                        rows="10"
+                    ></textarea>
 
                 </div>
 
@@ -127,7 +128,7 @@
                     id="analyzeBtn"
                     class="primary-btn"
                 >
-                    Analyze Match
+                    Analyze Resume
                 </button>
 
             </div>
@@ -138,9 +139,9 @@
 
     <!-- RESULTS -->
     <section
-    class="results"
-    id="resultsSection"
-    style="display:none;"
+        class="results"
+        id="resultsSection"
+        style="display:none;"
     >
 
         <div class="container">
@@ -151,23 +152,29 @@
 
                 <div class="score-box">
 
-                    <span id="score">
-                        -
-                    </span>
+                    <span id="score">-</span>
 
-                    <p>
-                        Match Score
-                    </p>
+                    <p>Match Score</p>
 
                 </div>
 
-                <div class="missing-skills-section">
+                <div class="skills-grid">
 
-                    <h3>Missing Skills</h3>
+                    <div class="skills-card">
 
-                    <ul id="missingSkills">
+                        <h3>✅ Matched Skills</h3>
 
-                    </ul>
+                        <ul id="matchedSkills"></ul>
+
+                    </div>
+
+                    <div class="skills-card">
+
+                        <h3>⚠️ Missing Skills</h3>
+
+                        <ul id="missingSkills"></ul>
+
+                    </div>
 
                 </div>
 
@@ -271,7 +278,7 @@
 
                     <span>1</span>
 
-                    <h3>Upload Resume</h3>
+                    <h3>Paste Resume</h3>
 
                     <p>
                         Share your latest resume.
@@ -283,7 +290,7 @@
 
                     <span>2</span>
 
-                    <h3>Upload JD</h3>
+                    <h3>Paste Job Description</h3>
 
                     <p>
                         Select your target role.
