@@ -2,85 +2,85 @@ const analyzeBtn = document.getElementById("analyzeBtn");
 
 analyzeBtn.addEventListener("click", async () => {
 
-    const resumeFile =
-        document.getElementById("resumeFile").files[0];
+    const resume =
+        document.getElementById("resume").value.trim();
 
-    const jdFile =
-        document.getElementById("jdFile").files[0];
+    const jobDescription =
+        document.getElementById("jd").value.trim();
 
-    if (!resumeFile || !jdFile) {
-        alert("Please upload both files");
+    if (!resume || !jobDescription) {
+        alert("Please fill both fields.");
         return;
     }
 
     try {
 
-    const response = await fetch(
-        "http://localhost:5000/analyze",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                resume: resumeFile.name,
-                jobDescription: jdFile.name
-            })
-        }
-    );
+        const response = await fetch(
+            "http://localhost:5000/analyze",
+            {
+                method: "POST",
 
-    const data = await response.json();
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-    document.getElementById(
-        "resultsSection"
-    ).style.display = "block";
+                body: JSON.stringify({
+                    resume,
+                    jobDescription
+                })
+            }
+        );
 
-    document.getElementById("score").innerText =
-        `${data.matchScore}%`;
+        const data = await response.json();
 
-    const skillsList =
-        document.getElementById("missingSkills");
+        document.getElementById(
+            "resultsSection"
+        ).style.display = "block";
 
-    skillsList.innerHTML = "";
+        document.getElementById("score").innerText =
+            `${data.matchScore}%`;
 
-    data.missingSkills.forEach(skill => {
+        // Matched Skills
+        const matchedSkillsList =
+            document.getElementById("matchedSkills");
 
-        const li =
-            document.createElement("li");
+        matchedSkillsList.innerHTML = "";
 
-        li.innerText = skill;
+        data.matchedSkills.forEach(skill => {
 
-        skillsList.appendChild(li);
+            const li =
+                document.createElement("li");
+
+            li.innerText = skill;
+
+            matchedSkillsList.appendChild(li);
+
+        });
+
+        // Missing Skills
+        const missingSkillsList =
+            document.getElementById("missingSkills");
+
+        missingSkillsList.innerHTML = "";
+
+        data.missingSkills.forEach(skill => {
+
+            const li =
+                document.createElement("li");
+
+            li.innerText = skill;
+
+            missingSkillsList.appendChild(li);
 
         });
 
     }
-    catch(error){
-
-        alert("Unable to connect to backend.");
+    catch (error) {
 
         console.error(error);
 
+        alert("Unable to connect to backend.");
+
     }
-
-    document.getElementById("resultsSection").style.display = "block";
-
-    document.getElementById("score").innerText =
-        `${data.matchScore}%`;
-
-    const skillsList =
-        document.getElementById("missingSkills");
-
-    skillsList.innerHTML = "";
-
-    data.missingSkills.forEach(skill => {
-
-        const li = document.createElement("li");
-
-        li.innerText = skill;
-
-        skillsList.appendChild(li);
-
-    });
 
 });
