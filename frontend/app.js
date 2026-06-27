@@ -15,6 +15,7 @@ analyzeBtn.addEventListener("click", async () => {
 
     try {
 
+        // Analyze Resume
         const response = await fetch(
             "http://localhost:5000/analyze",
             {
@@ -33,9 +34,7 @@ analyzeBtn.addEventListener("click", async () => {
 
         const data = await response.json();
 
-        document.getElementById(
-            "resultsSection"
-        ).style.display = "block";
+        document.getElementById("resultsSection").style.display = "block";
 
         document.getElementById("score").innerText =
             `${data.matchScore}%`;
@@ -48,8 +47,7 @@ analyzeBtn.addEventListener("click", async () => {
 
         data.matchedSkills.forEach(skill => {
 
-            const li =
-                document.createElement("li");
+            const li = document.createElement("li");
 
             li.innerText = skill;
 
@@ -65,12 +63,39 @@ analyzeBtn.addEventListener("click", async () => {
 
         data.missingSkills.forEach(skill => {
 
-            const li =
-                document.createElement("li");
+            const li = document.createElement("li");
 
             li.innerText = skill;
 
             missingSkillsList.appendChild(li);
+
+        });
+
+        // Fetch Analysis History
+        const historyResponse = await fetch(
+            "http://localhost:5000/history"
+        );
+
+        const history = await historyResponse.json();
+
+        const historyContainer =
+            document.getElementById("historyList");
+
+        historyContainer.innerHTML = "";
+
+        history.forEach(item => {
+
+            const card = document.createElement("div");
+
+            card.className = "history-card";
+
+            card.innerHTML = `
+                <h4>Match Score: ${item.matchScore}%</h4>
+                <p><strong>Date:</strong> ${new Date(item.createdAt).toLocaleString()}</p>
+                <p><strong>Missing Skills:</strong> ${item.missingSkills.join(", ")}</p>
+            `;
+
+            historyContainer.appendChild(card);
 
         });
 
