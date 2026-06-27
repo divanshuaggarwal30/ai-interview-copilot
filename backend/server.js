@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 const healthRoute = require("./routes/health");
 const featuresRoute = require("./routes/features");
 const analyzeRoute = require("./routes/analyze");
+const historyRoute = require("./routes/history");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use("/health", healthRoute);
 app.use("/features", featuresRoute);
 app.use("/analyze", analyzeRoute);
+app.use("/history", historyRoute);
 
 const PORT = process.env.PORT || 5000;
 
