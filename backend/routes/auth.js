@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const auth = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -75,4 +76,10 @@ router.post("/login", async (req, res) => {
 
     name: user.name,
   });
+});
+
+router.get("/profile", auth, async (req, res) => {
+  const user = await User.findById(req.user.id).select("-password");
+
+  res.json(user);
 });
