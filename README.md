@@ -1,98 +1,96 @@
 # AI Interview Copilot
 
-AI Interview Copilot is a full-stack web application that helps candidates evaluate how well their skills and experience align with target job opportunities. The platform analyzes resumes against job descriptions, calculates a job-fit score, identifies matched and missing skills, stores every analysis in MongoDB, and helps users prepare more effectively for interviews.
-
-The objective of the project is to simplify the job application process by providing resume analysis, job matching, persistent analysis history, and interview preparation in one platform.
+AI Interview Copilot is a full-stack web application that helps candidates evaluate how well their resume matches a target job description. The application analyzes resumes, calculates a match score, identifies matched and missing skills, stores previous analyses and provides a foundation for AI-powered interview preparation.
 
 ---
 
-## Problem Statement
+# Features
 
-Job seekers often struggle to determine whether their resumes match the requirements of a target role. Resume reviews, skill-gap analysis, and interview preparation are usually spread across multiple tools and require significant manual effort.
+## Authentication
 
-AI Interview Copilot solves this by providing a centralized application that evaluates resume-to-job compatibility, highlights missing skills, stores previous analyses, and prepares candidates for technical interviews.
+- User Registration
+- Secure Login
+- JWT Authentication
+- Protected Routes
+- User Profile
 
----
+## Resume Analysis
 
-## Current Features
+- Paste Resume
+- Paste Job Description
+- Skill Matching
+- Match Score Calculation
+- Missing Skill Detection
+- Matched Skill Detection
 
-### Resume & Job Description Analysis
+## Analysis History
 
-* Resume text input
-* Job description text input
-* Keyword-based skill matching
-* Dynamic match score calculation
-* Matched skills identification
-* Missing skills detection
+- Save every resume analysis
+- View previous analyses
+- Match score history
+- Missing skills history
+- Timestamp for each analysis
 
-### Frontend
+## Backend APIs
 
-* Professional responsive landing page
-* Resume analysis workflow
-* Analysis history section
-* Dynamic result rendering
-* Mobile-friendly design
-* Fetch API integration
-
-### Backend
-
-* Express.js REST API
-* Modular route architecture
-* Health endpoint
-* Features endpoint
-* Resume analysis endpoint
-* Analysis history endpoint
-* MongoDB integration with Mongoose
-
-### Database
-
-Every resume analysis is stored with:
-
-* Resume text
-* Job description
-* Match score
-* Matched skills
-* Missing skills
-* Analysis timestamp
-
-### End-to-End Workflow
-
-* User enters resume and job description
-* Frontend sends request to backend
-* Backend calculates match score
-* Analysis is saved to MongoDB
-* Response is returned to frontend
-* Previous analyses are displayed from the database
+- User Authentication APIs
+- Resume Analysis API
+- Analysis History API
+- Health API
+- Features API
 
 ---
 
-## Tech Stack
+# Architecture
 
-### Frontend
-
-* HTML5
-* CSS3
-* JavaScript (ES6)
-
-### Backend
-
-* Node.js
-* Express.js
-* CORS
-
-### Database
-
-* MongoDB
-* Mongoose
-
-### Development Tools
-
-* Git
-* GitHub
+```
+                Frontend
+      (HTML • CSS • JavaScript)
+                │
+                │ Fetch API
+                ▼
+        Express.js REST API
+                │
+        JWT Authentication
+                │
+                ▼
+            MongoDB Atlas
+                │
+        Users & Analysis Data
+```
 
 ---
 
-## Project Structure
+# Tech Stack
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+
+## Backend
+
+- Node.js
+- Express.js
+- JWT
+- bcryptjs
+- Mongoose
+- CORS
+- dotenv
+
+## Database
+
+- MongoDB Atlas
+
+## Version Control
+
+- Git
+- GitHub
+
+---
+
+# Folder Structure
 
 ```text
 ai-interview-copilot/
@@ -100,39 +98,149 @@ ai-interview-copilot/
 ├── frontend/
 │   ├── index.html
 │   ├── style.css
-│   └── app.js
+│   ├── app.js
+│   ├── login.html
+│   ├── signup.html
+│   ├── dashboard.html
+│   └── dashboard.js
 │
 ├── backend/
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   │
 │   ├── models/
+│   │   ├── User.js
 │   │   └── Analysis.js
 │   │
 │   ├── routes/
 │   │   ├── analyze.js
 │   │   ├── history.js
+│   │   ├── health.js
 │   │   ├── features.js
-│   │   └── health.js
-│   │
-│   ├── config/
-│   │   └── db.js
+│   │   ├── login.js
+│   │   ├── signup.js
+│   │   └── profile.js
 │   │
 │   ├── server.js
 │   ├── package.json
-│   └── package-lock.json
+│   └── .env
+│
+├── docs/
+│
+├── screenshots/
+│
+├── .env.example
 │
 └── README.md
 ```
 
 ---
 
-## Future Enhancements
+# Current Workflow
 
-* PDF and DOCX resume parsing
-* AI-powered resume parsing
-* Semantic skill matching
-* ATS compatibility scoring
-* Authentication using JWT
-* User accounts
-* Personalized interview question generation
-* Mock interview simulator
-* Progress tracking dashboard
-* Deployment on Render and Vercel
+1. User creates an account.
+2. User logs in.
+3. JWT token is generated.
+4. User accesses Dashboard.
+5. User submits Resume and Job Description.
+6. Backend calculates:
+   - Match Score
+   - Matched Skills
+   - Missing Skills
+7. Analysis is saved in MongoDB.
+8. Previous analyses are displayed on Dashboard.
+
+---
+
+# API Overview
+
+| Method | Endpoint  | Description          |
+| ------ | --------- | -------------------- |
+| POST   | /signup   | Register User        |
+| POST   | /login    | Login User           |
+| GET    | /profile  | Get User Profile     |
+| POST   | /analyze  | Analyze Resume       |
+| GET    | /history  | Get Analysis History |
+| GET    | /health   | Server Status        |
+| GET    | /features | Available Features   |
+
+---
+
+# Environment Variables
+
+Create a `.env` file inside the backend folder.
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+---
+
+# Future Scope
+
+- AI Resume Parsing
+- PDF Resume Upload
+- DOCX Resume Upload
+- Gemini/OpenAI Integration
+- ATS Compatibility Score
+- Resume Suggestions
+- Personalized Interview Questions
+- Voice Mock Interviews
+- Company-wise Interview Preparation
+- Dashboard Analytics
+- Admin Panel
+- Email Notifications
+- Deployment using Render and Vercel
+
+---
+
+# Repository Documentation
+
+```
+docs/
+```
+
+Contains:
+
+- API Documentation
+- Architecture Diagram
+- Database Design
+- Development Notes
+
+```
+screenshots/
+```
+
+Contains:
+
+- Landing Page
+- Login Page
+- Signup Page
+- Dashboard
+- Resume Analysis
+- Analysis History
+
+---
+
+# Status
+
+Current Phase:
+
+✅ User Authentication
+
+✅ Resume Analysis
+
+✅ MongoDB Integration
+
+✅ JWT Authentication
+
+✅ Persistent Analysis History
+
+🚀 Next Phase:
+
+AI-powered resume parsing and interview preparation.
