@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AI Interview Copilot</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            AI Interview Copilot
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Analyze</a></li>
+
+            <li>
+                <a href="#" id="logoutBtn">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- Dashboard -->
+
+    <section class="analyze-section">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <h2 id="welcomeUser">
+                    Welcome
+                </h2>
+
+                <p>
+                    View your previous resume analyses and continue improving your profile.
+                </p>
+
+            </div>
+
+            <div
+                style="
+                display:flex;
+                justify-content:center;
+                margin-bottom:40px;
+                "
+            >
+
+                <button
+                    class="primary-btn"
+                    onclick="window.location.href='index.html'"
+                >
+
+                    Analyze New Resume
+
+                </button>
+
+            </div>
+
+            <div class="result-card">
+
+                <h2>
+
+                    Previous Resume Analyses
+
+                </h2>
+
+                <br>
+
+                <div id="historyContainer">
+
+                    <p>No analysis found.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="dashboard.js"></script>
+
+</body>
+</html>
