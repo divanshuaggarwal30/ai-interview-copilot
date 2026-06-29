@@ -4,17 +4,23 @@ const Analysis = require("../models/Analysis");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-
     try {
 
         const { resume, jobDescription } = req.body;
 
-        if (!resume || !jobDescription) {
+        // Validate input
+        if (
+            !resume ||
+            !jobDescription ||
+            !resume.trim() ||
+            !jobDescription.trim()
+        ) {
             return res.status(400).json({
                 message: "Resume and Job Description are required"
             });
         }
 
+        // Extract unique words from resume
         const resumeSkills = [
             ...new Set(
                 resume
@@ -25,6 +31,7 @@ router.post("/", async (req, res) => {
             )
         ];
 
+        // Extract unique words from Job Description
         const jdSkills = [
             ...new Set(
                 jobDescription
@@ -35,14 +42,17 @@ router.post("/", async (req, res) => {
             )
         ];
 
+        // Calculate matched skills
         const matchedSkills = jdSkills.filter(skill =>
             resumeSkills.includes(skill)
         );
 
+        // Calculate missing skills
         const missingSkills = jdSkills.filter(skill =>
             !resumeSkills.includes(skill)
         );
 
+        // Calculate match score
         const matchScore =
             jdSkills.length === 0
                 ? 0
@@ -51,17 +61,17 @@ router.post("/", async (req, res) => {
                 );
 
         // Save analysis to MongoDB
-        const analysis = new Analysis({
+        const analysis = await Analysis.create({
             resumeText: resume,
-            jobDescription: jobDescription,
+            jobDescription,
             matchScore,
             matchedSkills,
             missingSkills
         });
 
-        await analysis.save();
-
+        // Send response
         res.status(200).json({
+            id: analysis._id,
             matchScore,
             matchedSkills,
             missingSkills
@@ -69,14 +79,13 @@ router.post("/", async (req, res) => {
 
     } catch (error) {
 
-        console.error("Analyze Error:", error);
+        console.error("Analyze Route Error:", error);
 
         res.status(500).json({
             message: "Internal Server Error"
         });
 
     }
-
 });
 
 module.exports = router;

@@ -4,14 +4,23 @@ const router = express.Router();
 
 const Analysis = require("../models/Analysis");
 
-router.get("/", async (req,res)=>{
+router.get("/", async (req, res) => {
 
-    const history =
-        await Analysis.find().sort({
-            createdAt:-1
+    try {
+
+        const history = await Analysis
+            .find()
+            .sort({ createdAt: -1 });
+
+        res.json(history);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: "Unable to fetch history"
         });
 
-    res.json(history);
+    }
 
 });
 
